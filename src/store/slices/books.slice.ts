@@ -12,7 +12,7 @@ interface IBooksState {
 
 const initialState:IBooksState = {
     books: [],
-    totalItems: 4,
+    totalItems: 0,
     error: null,
     isLoading: true,
     request: {

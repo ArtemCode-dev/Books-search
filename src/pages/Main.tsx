@@ -25,7 +25,7 @@ const Main:React.FC = () => {
         <div className={s.main}>
             <div className={s.main__body}>
                 <Container>
-                    <div className={s.main__body__total_items}><Text type={'h2'}>{totalItems}</Text></div>
+                    <div className={s.main__body__total_items}><Text type={'h2'} isBlack>{'Найдено: ' + totalItems}</Text></div>
                     <div className={s.main__body__books}>
                         {books && books.map((item) => (
                             <div className={s.main__body__books__card}>

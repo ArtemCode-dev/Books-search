@@ -21,11 +21,36 @@
 
         &__categories {
             display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
         }
 
         &__sorting {
             display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
         }
     }
     
+}
+
+@media screen and (max-width: 570px) {
+    .header {
+        &__search {
+            h1 {
+                font-size: 24px;
+            }
+        }
+        &__filters {
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+
+            select, h2 {
+                font-size: 14px;
+            }
+        }
+    }
 }

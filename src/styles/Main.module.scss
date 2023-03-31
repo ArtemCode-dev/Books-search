@@ -42,17 +42,17 @@
         }
 
         &__books {
-            gap: 40px;
+            gap: 30px;
             display: flex;
             flex-wrap: wrap;
-            //justify-content: space-between;
+            justify-content: center;
 
             &__card {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 //margin-left: 20px;
-                flex: 0 0 22.65%;
+                //flex: 0 0 22.65%;
             }
         }
         &__more_results {
