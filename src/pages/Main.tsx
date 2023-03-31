@@ -27,11 +27,13 @@ const Main:React.FC = () => {
                 <Container>
                     <div className={s.main__body__total_items}><Text type={'h2'} isBlack>{'Найдено: ' + totalItems}</Text></div>
                     <div className={s.main__body__books}>
-                        {books && books.map((item) => (
-                            <div className={s.main__body__books__card}>
-                                <Card props = {item.volumeInfo} id={item.id}/>
-                            </div>
-                        ))}
+                        <div className={s.main__body__books__wrapp}>
+                            {books && books.map((item) => (
+                                <div className={s.main__body__books__card}>
+                                    <Card props = {item.volumeInfo} id={item.id}/>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                     <div className={s.main__body__more_results}>
                         <Button func={()=>moreResults()} type={'primary'}>Еще</Button>

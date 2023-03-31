@@ -41,18 +41,24 @@
             justify-content: center;
         }
 
-        &__books {
-            gap: 30px;
+        &__books{
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
 
-            &__card {
+            &__wrapp{
+                width: 1090px;
+                gap: 30px;
                 display: flex;
-                align-items: center;
-                justify-content: center;
-                //margin-left: 20px;
-                //flex: 0 0 22.65%;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+
+                &__card {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    //margin-left: 20px;
+                    //flex: 0 0 22.65%;
+                }
             }
         }
         &__more_results {
