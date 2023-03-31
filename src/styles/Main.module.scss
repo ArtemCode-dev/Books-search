@@ -1,0 +1,62 @@
+.main {
+    &__navigation {
+        height: 286px;
+        padding: 22px 0px;
+        background: url(../assets/images/nav-background.png);
+        
+        &__search {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            h1 {
+                margin-bottom: 18px;
+            }
+        }
+
+        &__filters {
+            height: 135px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &__categories {
+                display: flex;
+            }
+
+            &__sorting {
+                display: flex;
+            }
+        }
+        
+    }
+
+    &__body {
+        padding: 20px 0px;
+
+        &__total_items {
+            margin: 0 auto;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        &__books {
+            gap: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            &__card {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex: 0 0 220px;
+            }
+        }
+        &__more_results {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

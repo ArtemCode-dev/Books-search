@@ -1,0 +1,43 @@
+@import './variables.scss';
+
+.book {
+    display: flex;
+    &__img{
+        min-width: 504px;
+        height: 482px;
+        background-color: $grey;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        & img {
+            width: 236px;
+            height: 396px;
+        }
+        // flex: 0 0 504px;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        padding: 43px 38px 0px 38px;
+        min-height: 439px;
+
+        &__info {
+            height: 91px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        &__description {
+            //min-height: 291px;
+            border: 1px solid $grey;
+            width: 524px;
+            padding: 24px;
+            height: 100%;
+        }
+    }
+}

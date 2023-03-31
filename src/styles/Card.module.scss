@@ -1,0 +1,32 @@
+@import '../styles/variables.scss';
+
+.card {
+    width: 220px;
+    height: 336px;
+    background-color: $grey;
+    padding: 30px 0px 0px 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &__img {
+        width: 128px;
+        height: 198px;
+    }
+
+    &__text {
+        height: 57px;
+        display: flex;
+        flex-direction: column;
+        width: 180px;
+        justify-content: space-between;
+        margin-top: 26px;
+
+        & span:nth-child(odd) {
+            color: $dark-grey;
+        }
+        & span:nth-child(even) {
+            color: $black;
+        }
+    }
+}

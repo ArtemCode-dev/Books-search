@@ -1,0 +1,31 @@
+.header {
+    height: 286px;
+    padding: 22px 0px;
+    background: url(../assets/images/nav-background.png);
+    
+    &__search {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        h1 {
+            margin-bottom: 18px;
+        }
+    }
+
+    &__filters {
+        height: 135px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__categories {
+            display: flex;
+        }
+
+        &__sorting {
+            display: flex;
+        }
+    }
+    
+}
