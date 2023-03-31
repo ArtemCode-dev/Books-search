@@ -1,6 +1,7 @@
 import React from "react"
 import s from '../../styles/shared/Input.module.scss';
 import searchSvg from '../../assets/svg/icons8-search.svg'
+import { NavLink } from "react-router-dom";
 
 interface IInput {
     type: string;
@@ -16,7 +17,7 @@ const Input:React.FC <IInput>= ({type, onClick, value, onChange, onKeyDown}) => 
             return (
                 <div className={s.input_search}>
                     <input value={value} onChange={onChange}  type='text' onKeyDown={onKeyDown}/>
-                    <img onClick={onClick} src={searchSvg} alt='search'/>
+                    <NavLink to={'/'}><img onClick={onClick} src={searchSvg} alt='search'/></NavLink>
                 </div>
             )
         default :

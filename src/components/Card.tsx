@@ -14,9 +14,11 @@ const Card:React.FC <ICardProps>= ({props, id}) => {
         <div className={s.card}>
             <NavLink to={`book/${id}`}><img src={props.imageLinks?.thumbnail ? props.imageLinks?.thumbnail : nfBook} className={s.card__img} alt='book_img' /></NavLink>
             <div className={s.card__text}>
-                <span>{props.categories}</span>
-                <span>{props.title.length < 30 ? props.title : props.title.substring(0, 30) + '...'}</span>
-                {props.authors?.map((item) => <span>{item}</span>)}
+                <span className={s.card__text__categories}>{props.categories}</span>
+                <span className={s.card__text__title}>{props.title}</span>
+                {
+                    <span className={s.card__text__author}>{props.authors}</span>
+                }
             </div>
         </div>
     )    

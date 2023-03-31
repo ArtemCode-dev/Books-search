@@ -1,17 +1,24 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import s from '../styles/Book.module.scss';
-import { useTypedSelector } from "src/hooks/store";
+//import { useTypedSelector } from "src/hooks/store";
 import Container from "src/components/shared/Container";
 import Text from "src/components/shared/Text";
 import { useParams } from 'react-router';
 import nfBook from '../assets/images/book-img-notfound.png';
+import { $api } from "src/http/api";
+import { IBook } from "src/types/books.types";
 
 
 const Book:React.FC = () => {
 
     const {id} = useParams();
-    const {books} = useTypedSelector((state) => state.books);
-    const book = books.find((el) => el.id === id);
+    //const {books} = useTypedSelector((state) => state.books);
+    const [book, setBook] = useState<null | IBook>(null);
+
+    useEffect(() => {
+        $api.get<IBook>(`https://www.googleapis.com/books/v1/volumes/${id}`)
+        .then(responce => setBook(responce.data))
+    }, [])
 
     if(!book) {
         return (

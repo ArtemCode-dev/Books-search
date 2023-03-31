@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 //import {$api} from '../http/api'
 import { useAppDispatch } from "src/hooks/store";
 import s from '../styles/Header.module.scss';
@@ -9,22 +9,33 @@ import Select from "./shared/Select";
 import Text from "./shared/Text";
 //import { IBooksRequest } from "src/types/books.types";
 import { getBooks } from "src/store/thunks/fetchBooks";
+import { changeRequest } from "src/store/slices/books.slice";
 
 
 const Header:React.FC= () => {
 
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+
     const searchBooks = () => {
-        dispatch(getBooks(searchVal))
+        dispatch(getBooks({searchVal, sortVal, categoriesVal}));
+        navigate('/')
     }
 
     const keyDownHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.code === "Enter") {
-            searchBooks()
+            searchBooks();
         }
       };
 
-    const [searchVal, getSearchVal] = useState('')
+    const [searchVal, getSearchVal] = useState('');
+    const [sortVal, setSortVal] = useState('relevance');
+    const [categoriesVal, setCategoriesVal] = useState('all');
+
+    useEffect(() => {
+        dispatch(getBooks({searchVal, sortVal, categoriesVal}));
+        dispatch(changeRequest({searchVal, sortVal, categoriesVal}))
+    }, [sortVal, categoriesVal])
 
     return (
         <div className={s.header}>
@@ -37,7 +48,7 @@ const Header:React.FC= () => {
                     <div className={s.header__filters__categories}>
 
                         <Text type={'h2'}>categories</Text>
-                        <Select>
+                        <Select value={categoriesVal} onChange={setCategoriesVal}>
                             <option>all</option>
                             <option>art</option>
                             <option>biography</option>
@@ -49,7 +60,7 @@ const Header:React.FC= () => {
                     </div>
                     <div className={s.header__filters__sorting}>
                         <Text type={'h2'}>Sorting by</Text>
-                        <Select>
+                        <Select value={sortVal} onChange={setSortVal}>
                             <option>relevance</option>
                             <option>newest</option>
                         </Select>

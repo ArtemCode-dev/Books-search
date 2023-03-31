@@ -32,3 +32,9 @@ export interface IBookInfo {
     categories?: string[];
     description: string;
 }
+
+export interface IRequest {
+    searchVal: string;
+    sortVal: string;
+    categoriesVal: string;
+}
